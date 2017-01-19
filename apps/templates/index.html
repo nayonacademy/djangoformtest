@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="POST">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    <ul>
+      {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}{{ form.errors }}
+    {% if form.errors %}
+        fdfg
+    {% for field in form %}
+        {% for error in field.errors %}
+            <p> {{ errors }} </p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+        <p>Name : {{ form.name }} {{ error.name }}</p>
+        <p>Address : {{ form.address }}    {{ error.address }}</p>
+        <p>Profession : {{ form.profession }}</p>
+
+        <input type="submit" value="Post">
+    </form>
+{% endblock content %}
